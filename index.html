@@ -20,6 +20,12 @@
           <div class="flex flex-col gap-2 w-xl p-4"> 
             <label class="text-xl font-medium place-self-center" for="autocomplete-input">What's on your mind?</label>
             <input class="rounded-full border border-purple-300 shadow-md focus:bg-purple-50 focus:outline-2 focus:outline-purple-300 text-xl w-full pt-2 pb-2 pr-6 pl-6" type="text" id="autocomplete-input" placeholder="Start typing here..." />
+            <div class="hidden absolute -mt-1 right-10 top-1/2 -translate-y-1/2" id="loading-spinner">
+              <svg class="animate-spin h-6 w-6 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
+            </div>
           </div>
           <ul id="result-list" class="hidden absolute z-10 w-md -mt-4 bg-pink-50 border-1 border-purple-200 rounded-lg shadow-lg place-self-center m-auto left-0 right-0 p-2">
             <li>Teste</li>
@@ -31,6 +37,6 @@
       </div>
     </div>
 
-    <script type="text/javascript" src="app.js"></script>
+    <script type="module" src="app.js"></script>
   </body>
 </html>
