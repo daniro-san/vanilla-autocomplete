@@ -3,7 +3,6 @@ import { mockApi } from "./mockApi.js";
 const searchInput = document.getElementById("autocomplete-input");
 const resultList = document.getElementById("result-list");
 const loaderSpinner = document.getElementById("loading-spinner");
-const btnSearch = document.getElementById("btn-search");
 
 const showResults = () => {
   resultList.classList.remove("hidden");
@@ -21,10 +20,12 @@ const hideLoader = () => {
   loaderSpinner.classList.add("hidden");
 };
 
+const SEARCH_THRESHOLD = 2;
+
 const handleInput = (e) => {
   const query = e.target.value;
 
-  if (query.length < 3) {
+  if (query.length < SEARCH_THRESHOLD) {
     hideResults();
     return;
   }
@@ -33,7 +34,11 @@ const handleInput = (e) => {
 
   fetchResults(query).then((results) => {
     resultList.innerHTML = "";
-    showResults();
+
+    if (results.length > 0) {
+      showResults();
+    }
+
     results.forEach((result) => {
       const listItem = document.createElement("li");
       listItem.textContent = result;
@@ -57,7 +62,6 @@ const fetchResults = async (querySearch) => {
 
 const initializeEventListeners = () => {
   searchInput.addEventListener("input", handleInput);
-  btnSearch.addEventListener("click", showResults);
   document.addEventListener("click", (event) => {
     if (
       !event.target.closest("#autocomplete-input") &&
