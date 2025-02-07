@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta viewport="width=device-width, initial-scale=1">
+
+    <title>Vanilla autocomplete</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="relative min-h-screen flex flex-col items-center justify-center bg-gray-50 w-full">
+      <h1 class="p-6 text-5xl font-thin italic">Vanilla autocomplete</h1>
+      <div class="flex flex-col items-center gap-4 w-full">
+        <div class="border rounded-lg border-purple-200 p-2">
+          <div class="flex flex-col gap-2 w-xl p-4"> 
+            <label class="text-xl font-medium place-self-center" for="autocomplete-input">What's on your mind?</label>
+            <input class="rounded-full border border-purple-300 shadow-md focus:bg-purple-50 focus:outline-2 focus:outline-purple-300 text-xl w-full pt-2 pb-2 pr-6 pl-6" type="text" id="autocomplete-input" placeholder="Start typing here..." />
+          </div>
+          <div class="flex justify-center">
+            <button type="button" class="rounded-full border border-purple-200 hover:bg-purple-100 cursor-pointer text-xl text-slate-600 pt-2 pb-2 pr-6 pl-6">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
