@@ -5,6 +5,7 @@ The idea of creating this autocomplete app was to improve my js foundations and 
 
 ## What does it do? 🤓
 It's a simple component that searchs for matches into an array
+
 Then it shows you the suggestions that you can then select one of them or not
 
 ## Want to run it locally? 💻
