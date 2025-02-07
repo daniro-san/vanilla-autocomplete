@@ -64,9 +64,8 @@ const initializeEventListeners = () => {
   searchInput.addEventListener("input", handleInput);
   document.addEventListener("click", (event) => {
     if (
-      !event.target.closest("#autocomplete-input") &&
-      !event.target.closest("#result-list") &&
-      !event.target.closest("#btn-search")
+      !searchInput.contains(event.target) &&
+      !resultList.contains(event.target)
     ) {
       hideResults();
     }
