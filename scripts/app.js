@@ -47,6 +47,13 @@ const handleInput = (e) => {
   }
 };
 
+const handleResultClick = (e) => {
+  if (e.target.matches('[role="option"]')) {
+    searchInput.value = e.target.dataset.value;
+    hideResults();
+  }
+};
+
 const renderResults = (results) => {
   resultList.innerHTML = results
     .map(
@@ -54,6 +61,7 @@ const renderResults = (results) => {
     <li class="p-3 hover:bg-purple-50 cursor-pointer transition-colors duration-200
       ${index === 0 ? "rounded-t-lg" : ""}
       ${index === results.length - 1 ? "rounded-b-lg" : ""}"
+      role="option"
       data-value="${item}">
       ${item}
     </li>
@@ -76,11 +84,9 @@ const renderError = () => {
 
 const initializeEventListeners = () => {
   searchInput.addEventListener("input", handleInput);
-  document.addEventListener("click", (event) => {
-    if (
-      !searchInput.contains(event.target) &&
-      !resultList.contains(event.target)
-    ) {
+  resultList.addEventListener("click", handleResultClick);
+  document.addEventListener("click", (e) => {
+    if (!searchInput.contains(e.target) && !resultList.contains(e.target)) {
       hideResults();
     }
   });
